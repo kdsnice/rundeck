@@ -1,0 +1,24 @@
+mysql:
+  image: mysql
+  container_name: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: mysql
+    MYSQL_DATABASE: rundeck
+    MYSQL_USER: rundeckuser
+    MYSQL_PASSWORD: rundeckpassword
+  net: my-bridge-network
+rundeck:
+#  image: kdsnice/rundeck:mysql
+  build: . 
+  container_name: rundeck
+  environment:
+    MYSQL_SERVER: mysql
+    MYSQL_DATABASE: rundeck
+    MYSQL_USER: rundeckuser
+    MYSQL_PASSWORD: rundeckpassword
+    SERVERURL: http://nicecodh.cloudapp.net
+    SERVERPORT: 80
+  net: my-bridge-network
+  ports:
+    - "4440:4440"
+  
