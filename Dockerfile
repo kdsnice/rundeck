@@ -13,7 +13,7 @@ ENV SERVERPORT=80
 
 RUN rpm -Uvh http://repo.rundeck.org/latest.rpm && \
         yum -y update && \
-        yum -y install java-1.8.0-openjdk rundeck openssh-clients netcat && \
+        yum -y install java-1.8.0-openjdk rundeck openssh-clients nmap-ncat && \
         yum -y clean all
 
 RUN sed -i.bak '/dataSource.url/d' /etc/rundeck/rundeck-config.properties && \
