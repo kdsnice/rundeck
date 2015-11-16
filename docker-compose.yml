@@ -8,7 +8,7 @@ mysql:
     MYSQL_PASSWORD: rundeckpassword
   net: my-bridge-network
 rundeck:
-  image: kdsnice/rundeck:mysql
+  image: kdsnice/rundeck:rdbmysql
   container_name: rundeck
   environment:
     MYSQL_SERVER: mysql
